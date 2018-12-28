@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="tamas.verovszki.registerlogin.RegistrationActivity">
+
+    <EditText
+        android:id="@+id/EditText_FelhasznaloiNev"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:hint="Felhasználó neve"
+        android:gravity="center"
+        android:textSize="16sp"
+        />
+
+    <EditText
+        android:id="@+id/EditText_Jelszo"
+        android:layout_below="@+id/EditText_FelhasznaloiNev"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:hint="Jelszó"
+        android:gravity="center"
+        android:textSize="16sp"
+        />
+
+    <EditText
+        android:id="@+id/EditText_Jelszo_Ujra"
+        android:layout_below="@+id/EditText_Jelszo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:hint="Jelszó megerősítés"
+        android:gravity="center"
+        android:textSize="16sp"
+        />
+
+    <EditText
+        android:id="@+id/EditText_TeljesNev"
+        android:layout_below="@+id/EditText_Jelszo_Ujra"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:hint="Teljes név"
+        android:gravity="center"
+        android:textSize="16sp"
+        />
+
+    <EditText
+        android:id="@+id/EditText_Telefonszám"
+        android:layout_below="@+id/EditText_TeljesNev"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:hint="Telefonszám"
+        android:gravity="center"
+        android:textSize="16sp"
+        />
+
+    <Button
+        android:id="@+id/Button_Register"
+        android:layout_below="@id/EditText_Telefonszám"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Regisztráció"
+        android:textSize="12sp"
+        android:textAllCaps="false"
+        />
+
+    <Button
+        android:id="@+id/Button_Cancel"
+        android:layout_below="@id/Button_Register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Mégsem"
+        android:textSize="12sp"
+        android:textAllCaps="false"
+        />
+
+</RelativeLayout>

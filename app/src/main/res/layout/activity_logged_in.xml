@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="tamas.verovszki.registerlogin.LoggedInActivity">
+
+    <TextView
+        android:id="@+id/TextView_Welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:text="Üdvözöllek "
+        android:textSize="16sp"
+        android:textAllCaps="false"
+        />
+
+    <Button
+        android:id="@+id/Button_Logout"
+        android:layout_below="@+id/TextView_Welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Kijelentkezés"
+        android:textSize="12sp"
+        android:textAllCaps="false"
+        />
+
+</RelativeLayout>
