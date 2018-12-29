@@ -17,12 +17,13 @@ public class RegistrationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT); // képernyő-elforgatás tiltása
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
         init();
 
+        // Megadott adatok ellenőrzése még a mentés előtt
         Button_Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,18 +46,19 @@ public class RegistrationActivity extends AppCompatActivity {
                     Intent fomenu = new Intent(RegistrationActivity.this, MainActivity.class);
                     startActivity(fomenu);
                     finish();
-                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out); // átmenetes animáció az activity-k között;
                 }
             }
         });
 
+        // Mégsem-gomb -> vissza a kezdőlapra
         Button_Cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent fomenu = new Intent(RegistrationActivity.this, MainActivity.class);
                 startActivity(fomenu);
                 finish();
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out); // átmenetes animáció az activity-k között;
             }
         });
     }
@@ -72,6 +74,7 @@ public class RegistrationActivity extends AppCompatActivity {
         db = new AdatbazisSegito(this);
     }
 
+    // Maga a regisztrációs folyamat (megadott adatok mentése)
     public void RegisztracioRogzitese(){
         String felhasznaloinev = EditText_FelhasznaloiNev.getText().toString();
         String jelszo = EditText_Jelszo.getText().toString();

@@ -18,16 +18,16 @@ public class MainActivity extends AppCompatActivity {
     EditText EditText_FelhasznaloiNev, EditText_Jelszo;
     Button Button_Login, Button_Register;
     AdatbazisSegito db;
-    private String felhasznaloTeljesNeve;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT); // képernyő-elforgatás tiltása
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         init();
 
+        // Login gomb kezelése
         Button_Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -38,10 +38,10 @@ public class MainActivity extends AppCompatActivity {
                     String teljesNev = db.felhasznaloKereses(EditText_FelhasznaloiNev.getText().toString(), EditText_Jelszo.getText().toString());
                     if (!teljesNev.equals("")) {
                         Intent belepve = new Intent(MainActivity.this, LoggedInActivity.class);
-                        belepve.putExtra("Teljesnev", teljesNev);
+                        belepve.putExtra("Teljesnev", teljesNev); // a felhasználói név átadása az új activitynek, hogy üdvözölni tudja őt
                         startActivity(belepve);
                         finish();
-                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out); // átmenetes animáció az activity-k között
                     } else {
                         Toast.makeText(MainActivity.this, "Hibás felhasználói név vagy jelszó!", Toast.LENGTH_SHORT).show();
                     }
@@ -49,13 +49,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Regisztráció gomb kezelése
         Button_Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent regisztracio = new Intent(MainActivity.this, RegistrationActivity.class);
                 startActivity(regisztracio);
                 finish();
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out); // átmenetes animáció az activity-k között;
             }
         });
     }

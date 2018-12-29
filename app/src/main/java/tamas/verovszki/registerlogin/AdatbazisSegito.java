@@ -21,7 +21,6 @@ public class AdatbazisSegito extends SQLiteOpenHelper {
     public static final String COL_JELSZO = "Jelszo";
     public static final String COL_TELJESNEV = "TeljesNev";
     public static final String COL_TELEFONSZAM = "Telefonszam";
-    String felhasznaloTeljesNeve="";
 
     // Konstruktor
     public AdatbazisSegito(Context context) {
@@ -41,7 +40,7 @@ public class AdatbazisSegito extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
     }
 
-    // adat felvétel - regisztráció
+    // adatfelvétel - regisztráció
     public boolean adatFelvetel(String felhasznalonev, String jelszo, String teljesnev, String telefonszam ) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -59,9 +58,9 @@ public class AdatbazisSegito extends SQLiteOpenHelper {
             return true;            // sikeres adatfelvétel
     }
 
-    // felhasználó keresesése
-    public String felhasznaloKereses(String felhasznalonev, String jelszo)
-    {
+    // felhasználó keresése
+    public String felhasznaloKereses(String felhasznalonev, String jelszo){
+        String felhasznaloTeljesNeve="";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor eredmeny = db.rawQuery("Select TeljesNev from " + TABLE_NAME + " where Felhasznalonev='" + felhasznalonev + "' AND Jelszo='" + jelszo + "'", null);
         if (eredmeny!=null && eredmeny.getCount()>0) {
@@ -71,8 +70,8 @@ public class AdatbazisSegito extends SQLiteOpenHelper {
         return felhasznaloTeljesNeve;
     }
 
-    public boolean vanEMarIlyenFelhasznalo(String felhasznalonev)
-    {
+    // egyező felhasználói név ellenőrzése
+    public boolean vanEMarIlyenFelhasznalo(String felhasznalonev){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor eredmeny = db.rawQuery("Select Felhasznalonev from " + TABLE_NAME + " where Felhasznalonev='" + felhasznalonev + "'", null);
         if (eredmeny!=null && eredmeny.getCount()>0) {
