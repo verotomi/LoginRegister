@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
                         belepve.putExtra("Teljesnev", teljesNev);
                         startActivity(belepve);
                         finish();
+                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     } else {
                         Toast.makeText(MainActivity.this, "Hibás felhasználói név vagy jelszó!", Toast.LENGTH_SHORT).show();
                     }
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent regisztracio = new Intent(MainActivity.this, RegistrationActivity.class);
                 startActivity(regisztracio);
                 finish();
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
     }

@@ -4,17 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="tamas.verovszki.registerlogin.RegistrationActivity">
+    tools:context="tamas.verovszki.registerlogin.RegistrationActivity"
+    android:background="@drawable/androidbackground1">
 
     <EditText
         android:id="@+id/EditText_FelhasznaloiNev"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
         android:hint="Felhasználó neve"
         android:gravity="center"
         android:textSize="16sp"
+        android:background="@color/whitefaded"
+        android:padding="6dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="12dp"
         />
 
     <EditText
@@ -26,6 +32,9 @@
         android:hint="Jelszó"
         android:gravity="center"
         android:textSize="16sp"
+        android:background="@color/whitefaded"
+        android:padding="6dp"
+        android:layout_margin="2dp"
         />
 
     <EditText
@@ -37,6 +46,9 @@
         android:hint="Jelszó megerősítés"
         android:gravity="center"
         android:textSize="16sp"
+        android:background="@color/whitefaded"
+        android:padding="6dp"
+        android:layout_margin="2dp"
         />
 
     <EditText
@@ -48,6 +60,9 @@
         android:hint="Teljes név"
         android:gravity="center"
         android:textSize="16sp"
+        android:background="@color/whitefaded"
+        android:padding="6dp"
+        android:layout_margin="2dp"
         />
 
     <EditText
@@ -59,6 +74,9 @@
         android:hint="Telefonszám"
         android:gravity="center"
         android:textSize="16sp"
+        android:background="@color/whitefaded"
+        android:padding="6dp"
+        android:layout_margin="2dp"
         />
 
     <Button
@@ -82,5 +100,27 @@
         android:textSize="12sp"
         android:textAllCaps="false"
         />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/Lottie1"
+        android:layout_below="@id/Button_Cancel"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_centerHorizontal="true"
+        app:lottie_fileName="loading_rectangles.json"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Text_View_Copyright"
+        android:text="@string/text_Copyright"
+        android:textColor="@color/whitefaded"
+        android:gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
 
 </RelativeLayout>

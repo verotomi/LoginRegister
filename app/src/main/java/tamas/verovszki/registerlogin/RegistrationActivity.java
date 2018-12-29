@@ -35,17 +35,17 @@ public class RegistrationActivity extends AppCompatActivity {
                     Toast.makeText(RegistrationActivity.this, "Minden adatot meg kell adni!", Toast.LENGTH_SHORT).show();
                 }
                 else if (!EditText_Jelszo.getText().toString().equals(EditText_Jelszo_Ujra.getText().toString())){
-
+                    Toast.makeText(RegistrationActivity.this, "Nem egyeznek a jelszavak!", Toast.LENGTH_SHORT).show();
                 }
                 else if (db.vanEMarIlyenFelhasznalo(EditText_FelhasznaloiNev.getText().toString())){
                     Toast.makeText(RegistrationActivity.this, "Ilyen nevű felhasználó már létezik!", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     RegisztracioRogzitese();
-                    Toast.makeText(RegistrationActivity.this, "Sikeres regisztráció!", Toast.LENGTH_SHORT).show();
                     Intent fomenu = new Intent(RegistrationActivity.this, MainActivity.class);
                     startActivity(fomenu);
                     finish();
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 }
             }
         });
@@ -56,6 +56,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 Intent fomenu = new Intent(RegistrationActivity.this, MainActivity.class);
                 startActivity(fomenu);
                 finish();
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
     }
@@ -79,12 +80,11 @@ public class RegistrationActivity extends AppCompatActivity {
 
         boolean eredmeny = db.adatFelvetel(felhasznaloinev, jelszo, teljesnev, telefonszam);
 
-        /*if (eredmeny)
-        {
-            Toast.makeText(this, "Sikeres adatrögzítés", Toast.LENGTH_SHORT).show();
-        }else
-        {
-            Toast.makeText(this, "Sikertelen adatrögzítés", Toast.LENGTH_SHORT).show();
-        }*/
+        if (!eredmeny){
+            Toast.makeText(this, "Sikertelen regisztráció", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(RegistrationActivity.this, "Sikeres regisztráció!", Toast.LENGTH_SHORT).show();
+        }
     }
 }

@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">RegisterLogin</string>
+    <string name="app_name">Lépjen be</string>
+    <string name="app_name_1">Regisztráció és belépés</string>
+    <string name="text_Copyright">© 2018 - Verovszki Tamás"</string>
 </resources>
